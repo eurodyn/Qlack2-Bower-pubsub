@@ -1,0 +1,29 @@
+{
+  "version": "1.0.4",
+  "name": "qlack2-bower-pubsub",
+  "description": "A simple cross-frame pubsub library.",
+  "author": "European Dynamics <info@eurodyn.com>",
+  "license": "EUPL-1.1",
+  "main": "./dist/qlack2-bower-pubsub.js",
+  "scripts": {
+    "preversion": "npm run build",
+    "postversion": "npm run bowerSync && npm run changelog",
+    "prebuild": "npm run lint",
+    "build": "npm run umd && npm run uglify",
+    "pretest": "npm run build",
+    "test": "mocha",
+    "lint": "eslint ./src/qlack2-bower-pubsub.js",
+    "umd": "umd qlack2-bower-pubsub ./src/qlack2-bower-pubsub.js ./dist/qlack2-bower-pubsub.js",
+    "uglify": "uglifyjs ./src/qlack2-bower-pubsub.js -o ./dist/qlack2-bower-pubsub.min.js -c -m"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "conventional-changelog": "^1.1.0",
+    "eslint": "^2.8.0",
+    "expect.js": "^0.3.1",
+    "jscs": "^3.0.3",
+    "mocha": "^2.4.5",
+    "uglify-js": "^2.6.2",
+    "umd": "^3.0.1"
+  }
+}
