@@ -21,8 +21,10 @@
     "conventional-changelog": "^1.1.0",
     "eslint": "^2.8.0",
     "expect.js": "^0.3.1",
+    "gulp": "^3.9.1",
     "jscs": "^3.0.3",
     "mocha": "^2.4.5",
+    "uglify": "^0.1.5",
     "uglify-js": "^2.6.2",
     "umd": "^3.0.1"
   }
