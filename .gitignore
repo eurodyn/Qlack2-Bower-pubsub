@@ -2,3 +2,6 @@ node_modules/
 bower_components/
 npm-debug.log
 CHANGELOG.md
+test/app1/target
+test/app2/target
+test/app3/target

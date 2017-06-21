@@ -47,13 +47,25 @@ message exchange will take place to allow the client to register with the server
 You need to ensure that when initialisation of the client takes place the server
 component is already loaded and initialised.
 
+### Security
+To guarantee that only allowed domains can communicate with your QPubSub server,
+you may provide an allowed domains list while initialising QPubSub. The domain
+ list is a string array, so multiple domains can be specified at once, e.g. 
+```
+QPubSub.init("server", true, ["http://localhost:8080", "https://myprod-url", "https://mypreprod-url"]);
+```
+
 ### API
-#### `init(name, isServer)`
+#### `init(name, isServer, allowedDomains)`
 Initialises the QPubSub instance.
 * `name` A String value identifying the name of this instance. Its only purpose
 is to identify the source of console logging messages.
 * `isServer` A Boolean value indicating whether this instance is a server. Make
 sure you only have one server instance running.
+* `allowedDomains` A String array with the domains from which communication
+is allowed. If not specified, you will see a warning in your Javascript
+console, however pub/sub will still work. You are strongly advised to never
+use QPubSub in production without a list of allowed domains.
 
 #### `subscribe(topic, callback)`
 Subscribe to a topic to receive messages. Each message received is forwarded to
