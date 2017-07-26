@@ -24,6 +24,11 @@
 	 * @type {Window}
 	 */
 	var serverWindow = window;
+	
+	/** The list of subscriptions to topics. This is meaningful only when the
+	 * instance if a server.
+ 	 */
+	var serverWindowOrigin = serverWindow.location.protocol + '//' + serverWindow.location.host;	
 
 	/** An array of callback functions to be invoked when a message is received
 	 *  on a topic. The array index is the name of the topic, so there can be
@@ -89,7 +94,8 @@
 				clientID: instanceID,
 				msgType: MESSAGE_TYPE.CONTROL,
 				msg: MESSAGE_CONTROL.PING
-			}, serverWindow.origin);
+
+			}, serverWindowOrigin);
 			if (serverWindow !== window.parent) {
 				serverWindow = window.parent;
 			} else {
@@ -114,7 +120,8 @@
 			msgType: MESSAGE_TYPE.PUB,
 			topic: topic,
 			msg: msg
-		}, serverWindow.origin);
+
+		}, serverWindowOrigin);
 	}
 
 	/**
@@ -132,7 +139,8 @@
 			clientID: instanceID,
 			msgType: MESSAGE_TYPE.SUB,
 			msg: topic
-		}, serverWindow.origin);
+
+		}, serverWindowOrigin);
 		callbacks[topic] = callback;
 	}
 
@@ -149,7 +157,8 @@
 			clientID: instanceID,
 			msgType: MESSAGE_TYPE.UNSUB,
 			msg: topic
-		}, serverWindow.origin);
+
+		}, serverWindowOrigin);
 		delete(callbacks[topic]);
 	}
 
