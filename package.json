@@ -1,5 +1,5 @@
 {
-  "version": "1.0.7",
+  "version": "1.0.8",
   "name": "qlack2-bower-pubsub",
   "description": "A simple cross-frame pubsub library.",
   "author": "European Dynamics <info@eurodyn.com>",
